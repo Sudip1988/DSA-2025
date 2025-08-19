@@ -17,15 +17,25 @@
 
 # 1 <= nums.length <= 50,000.
 # -50,000 <= nums[i] <= 50,000
+from typing import List
 def bubble(nums : List[int]) -> List[int] :
-    for i in range(nums) :
-        j = 1
-        while j < len(nums):
-            if nums[i] > nums[j] :
-                temp = nums[j]
-                nums[j] = nums[i]
-                nums[i] = temp
-                
+    n = len(nums)
+    for i in range(n) :
+        swapped = False
+        for j in range(0, n-i-1):
+            if nums[j] > nums[j+1] :
+                tmp = nums[j+1]
+                nums[j+1] = nums[j]
+                nums[j] = tmp
+                swapped = True
+        
+        if swapped == False :
+            break
+    return nums
+
+print(bubble([3,4,8,1,2,11,8]))
+
+
 
 
 
