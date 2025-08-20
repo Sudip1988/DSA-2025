@@ -1,3 +1,4 @@
+from typing import List
 def merge_sort(nums :List[int] ) -> List[int] :
 
     if len(nums) == 1 :
@@ -15,18 +16,18 @@ def merge_sort(nums :List[int] ) -> List[int] :
     return merge(l, r)
 
 def merge(l, r) -> List[int] :
-    i,j = 0
+    i = 0
+    j = 0
     result = []
-    while i < len(l) And j < len(r) :
-        tmp = 0
+    while i < len(l) and j < len(r) :
         if l[i] < r[j] :
             result.append(l[i])
             i += 1
         else :
             result.append(r[j])
             j += 1
-    result.extend(:i)
-    result.extend(:j)
+    result.extend(l[i:])
+    result.extend(r[j:])
     print(result)
     return result
 
